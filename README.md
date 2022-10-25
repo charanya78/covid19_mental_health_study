@@ -127,6 +127,9 @@ The analysis performed here are avaiblabe in Analysis/18_Analysis.xlsx (https://
 
 ![alt text](https://github.com/charanya78/covid19_mental_health_study/blob/master/diagrams/cluster2.png)
  
+The analysis and code performed here are avaiblabe in 
+- Analysis/Cluster_Analysis.xlsx (https://github.com/charanya78/covid19_mental_health_study/blob/master/Analysis/18_Analysis.xlsx)
+- Hierarchical_Clustering.ipynb (https://github.com/charanya78/covid19_mental_health_study/blob/main/Hierarchical_Clustering.ipynb)
 
 ## PAPER
 
