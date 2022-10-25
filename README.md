@@ -1,1 +1,1 @@
-# covid19_mental_health_study
+# COVID-19 Mental Health Study
