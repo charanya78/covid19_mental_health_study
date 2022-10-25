@@ -46,14 +46,59 @@ To install the above mentioned dependencies use:
 
 ## EXPLORATORY DATA ANALYSIS
 
-Once the survey data had been converted into a majority of numerical values, we decided to split the data by age groups, which is a fundamental factor in determining anxiety levels, and conduct individual analysis on each of the age groups. 
-- In the next step, the spectrogram and its corresponding amplitude-time graph is plotted. 
-- EDA is performed and it has to be noted that there is a clear peak that can be seen right at the time of the fall which is absent for all non fall audios
-- On looking at the spectrogram, the brightest color is at the same time, and when it is compared to the amplitude-time graph above it shows that the amplitude or loudness has drastically increased at around the same time.
-- After this, the MFCC is plotted for the same. Here the lower amplitudes are indicated by blue and the higher ones by shades of red and it is clear that there are different points of high and low amplitudes for each feature. 
-- The next graph is an actual plot of the features using their amplitudes as the y-axis and time as the x-axis. 
-- It is very difficult to get meaningful information about the maximum amplitude overall by dissecting the preexisting audio. 
-- But nevertheless, it is important to observe that amplitude is a very important feature for classification.
+- Once the survey data had been converted into a majority of numerical values, we decided to split the data by age groups, which is a fundamental factor in determining anxiety levels, and conduct individual analysis on each of the age groups. 
+
+#### Less than 18 group
+
+#### Data Analysis using Excel
+
+-	We found 65 number of samples belonging to the age group of less than 18, out of which 43(64.6%) belonged to the female gender and 23(35.3 %) belonged to the male gender.
+-	Then, we further split up the data into 4 anxiety groups based on the GAD 7 scale.
+-	We conducted further analysis on each anxiety group and analyzed the different questions that could have contributed to a higher anxiety.
+-	We took each question and found the number of people who said Yes/Frequently (1) to the question and then calculated the percentage of people who answered 1 to each question in each anxiety group.
+-	It was found that as the level of anxiety increases, the percentages also increase for a few questions(Highlighted in green). 
+-	Also, it can be observed that for a few questions the percentages of people are higher in the case of moderate and severe anxiety and lower in the cases of 0 and mild anxiety(Highlighted in yellow).
+
+![alt text](https://github.com/charanya78/covid19_mental_health_study/blob/master/diagrams/excel.png)
+
+#### Data Analysis using EDA
+
+We find that the people who answered Yes for the questions 
+
+- Have you ever felt symptoms of COVID?
+- Do you have any of the following conditions?	
+- Are you stuck somewhere alone without support from friends or family?	
+ don't have moderate/severe anxiety which makes it insignificant in its contribution to anxiety.
+
+When we sum up the people who answered 
+- Yes/ Frequently for a question and have moderate and severe anxiety
+- No/Rarely for a question and have moderate and severe anxiety
+
+We find that if the sum of the latter is greater than the former, it does not contribute significantly to anxiety(1).
+There are 9 questions which satisfy the above condition which become trivial in their contribution to anxiety.
+For all the questions that were selected as important from the data analysis in Excel,it is found that 3 of the questions:
+- Is it difficult to get essentials?
+- Is someone from your family in the medical field everyday? 
+-	How often do you eat outside food? (per week) 
+satisfy the condition mentioned at (1) which makes them less significant in their contribution to anxiety.
+
+The rest of the 9  features have notable correlation with the anxiety of a person.
+On plotting several relationship plots, it was found that it is not possible to differentiate features based on gender as almost every feature was applicable for both the genders.
+So, gender, too ,becomes an important parameter in its contribution to the anxiety of a person.
+
+We,then, applied a feature selection method- Extra Tree Classifier and to get the top 10 features of importance.When we compare the top 10 features selected by the Extra Tree Classifier and the 10 features selected by careful analysis and observation of the data , 8/10 features overlap.
+
+The important 8 features are:
+- During the lockdown have you been doing more household work?
+- Do you miss hanging out with people outside of your house?
+- Have you or anyone you know have corona virus/recovered from COVID/been tested for COVID?
+- Do you have online classes/assignments/assessments/tests?
+- Have you felt frustrated by having your activities, major life events or opportunities affected by the virus?
+- Do you have children less than 3 years, or elders 65+ at your house?
+- Have you ever felt afraid or anxious to go to hospital during this pandemic?
+- Has your sleep cycle changed drastically?
+- What is your gender?
+- Do you feel like you have wasted your time during the lock down or have you ever felt pressured by your peer’s accomplishments during the lockdown?
 
 ## CLUSTERING
 
@@ -74,8 +119,6 @@ Once the survey data had been converted into a majority of numerical values, we 
 - The data was scaled and the  algorithm was executed after setting the appropriate parameters to their correct values, and the training set score of 95.23 and a testing set score of 92.31 was obtained. 
 
 ## PAPER
-
-![alt text](https://github.com/charanya78/fall_detection_audios/blob/main/diagrams/repo.PNG)
 
 This diagram shows the input - output flow through the different modules in the classifier.
 
