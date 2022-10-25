@@ -100,26 +100,37 @@ The important 8 features are:
 - What is your gender?
 - Do you feel like you have wasted your time during the lock down or have you ever felt pressured by your peer’s accomplishments during the lockdown?
 
+The analysis performed here are avaiblabe in Analysis/18_Analysis.xlsx (https://github.com/charanya78/covid19_mental_health_study/blob/master/Analysis/18_Analysis.xlsx)
+
 ## CLUSTERING
 
-- First the sampling rate of the audio, which was 22050 was found. Next the hip length was set to 2205 so that the amplitude was extracted every tenth of a second. 
-- Finally, all the values were saved as a dataframe and downloaded. 
+- We took the 23 features and scaled the data frame using Standard Scaler and constructed a dendrogram to work out ways in which samples can be allocated to clusters.
+- Upon analyzing the dendrogram we can observe that we draw a horizontal line at y=6,we have 4 clusters formed which is equal to the four anxiety groups we have. 
+- On further analysis, it was found that the four clusters consisted of 12,14,17,22 samples each.
+- We split up the different anxiety groups amongst each cluster and got the following tabulation:
+ 
+![alt text](https://github.com/charanya78/covid19_mental_health_study/blob/master/diagrams/cluster.png)
 
-## FEATURE SELECTION
-- In feature selection the generations were set to 100, where only the best set of individuals moved on from each generation. 
-- The fitness function, which indicates how close the algorithm is to finding the solution, was printed at every step. 
-- The closer the generation, the smaller the value of the fitness function. 
-- Finally, the best 12 features were selected. 
-- The value of the fitness function was plotted across the number of generations or iterations and although the initial value of the fitness function started close to 0.25, the final value became 0.002.
+- It is clear that Cluster 4 contains all the severe anxiety samples and Cluster 3 contains only mild and 0 anxiety. 
+- Clusters 2 and 4 have the greatest percentage of moderate anxiety samples.
+- On examining each cluster separately, we found the number of people who answered similarly for each question.
+- For example, in the cluster with 12 samples, all the samples belonged to the male gender,and, hence, the percentage of similarity is 100%.
+- And,it is also important to note the majority response of each question.
+- We tabulated the percentage of similarity and the majority response for each question under each cluster and counted the number of questions which have the majority response to be Yes/Frequently(Highlighted in green).
 
-## REPOSITORY STRUCTURE AND USAGE
+![alt text](https://github.com/charanya78/covid19_mental_health_study/blob/master/diagrams/cluster_analysis.png)
 
-- The final step to classification is the classifier, SVM. 
-- The twelve features that were selected by the  genetic algorithm were passed to the SVM along with their labels. 
-- The data was scaled and the  algorithm was executed after setting the appropriate parameters to their correct values, and the training set score of 95.23 and a testing set score of 92.31 was obtained. 
+- In cluster 1 there were 8 questions where the majority response was Yes/Frequently and in cluster 2 there were 4, in cluster 3 there were 7 and cluster 4 there were 9.
+- It is interesting to note that, cluster 4 has the highest number of questions with Yes/Frequently as the majority response and cluster 4 also houses all the severe anxiety samples.
+- It was also found that for a few questions, the majority response was found to be the same for all the four clusters.
+- Those questions have either a majority Yes/ majority No response, in general, which makes its impact minimal in the anxiety of a person(Highlighted in Red).
+
+![alt text](https://github.com/charanya78/covid19_mental_health_study/blob/master/diagrams/cluster2.png)
+ 
 
 ## PAPER
 
-This diagram shows the input - output flow through the different modules in the classifier.
+- The paper was presented at ICRTAC 2020(3rd International Conference on Recent Trends in Advanced Computing) and was published in Springer Lecture Notes in Electric Engineering - https://link.springer.com/chapter/10.1007/978-981-16-6448-9_23
 
+- Jayasimha, A., Jayashanker, P., Charanya, S.K., Krithika, K. (2022). A Study on the Repercussions of the COVID-19 Pandemic in the Mental Health of the Common Public: Machine Learning Approach. Artificial Intelligence and Technologies. Lecture Notes in Electrical Engineering, Springer
 
